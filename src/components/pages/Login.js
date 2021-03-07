@@ -41,8 +41,8 @@ const Login = ({
         <Heading Tag='h1' text={LOGIN}/>
         <form onSubmit={onSubmit} className="ui form">
           <div>
-            <Field text={USERNAME} fieldName={USERNAME} handler={usernameChangeHandler} autocompleteText={USERNAME} isRequired={true} />
-            <Field text={PASSWORD} type="password" fieldName={PASSWORD} handler={passwordChangeHandler} autocompleteText={PASSWORD} isRequired={true} />
+            <Field text={USERNAME} value={userName} fieldName={USERNAME} handler={usernameChangeHandler} autocompleteText={USERNAME} isRequired={true} />
+            <Field text={PASSWORD} value={password} type="password" fieldName={PASSWORD} handler={passwordChangeHandler} autocompleteText={PASSWORD} isRequired={true} />
             <FormSubmitButtonField text={LOGIN} classes='ui primary button' handler={ onSubmit } type='button' url={SIGNUPPATH} linkText={SIGNUP.TEXT} />
           </div>
         </form>

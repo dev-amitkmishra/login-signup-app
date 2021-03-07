@@ -4,12 +4,12 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     firstName: {
         type: String,
-        match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
+        match: [/^[a-zA-Z0-9. ]+$/, 'is invalid'],
         required: [true, "enter firstname"]
     },
     lastName: {
         type: String,
-        match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
+        match: [/^[a-zA-Z0-9. ]+$/, 'is invalid'],
         required: [true, "enter lastname"]
     },
     userName: {
@@ -17,7 +17,7 @@ const UserSchema = new Schema({
         lowercase: true,
         unique: true,
         required: [true, "enter username"],
-        match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
+        match: [/^[a-zA-Z0-9._]+$/, 'is invalid'],
         index: true
     },
     password: {
