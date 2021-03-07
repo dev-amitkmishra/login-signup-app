@@ -3,7 +3,7 @@
     "info": {
       "version": "1.0.0",
       "title": "User app",
-      "description": "login and registeration app",
+      "description": "login and signup app",
       "license": {
         "name": "MIT",
         "url": "https://opensource.org/licenses/MIT"
@@ -27,97 +27,75 @@
       "application/json"
     ],
     "paths": {
-        "/register": {
-          "post": {
-            "tags": [
-              "Users"
-            ],
-            "description": "Create new user in system",
-            "parameters": [
-              {
-                "name": "user",
-                "in": "body",
-                "description": "User that we want to create"
-              }
-            ],
-            "produces": [
-              "application/json"
-            ],
-            "responses": {
-              "200": {
-                "description": "New user is created"
+      "/signup": {
+        "post": {
+          "tags": [
+            "Users"
+          ],
+          "description": "Register new user in system",
+          "parameters": [
+            {
+              "name": "user",
+              "in": "body",
+              "description": "User that we want to create",
+              "schema": {
+                "$ref": "#/definitions/User"
               }
             }
-          } 
-        },
-        "/login": {
-            "post": {
-              "tags": [
-                "Users"
-              ],
-              "description": "Create new user in system",
-              "parameters": [
-                {
-                  "name": "user",
-                  "in": "body",
-                  "description": "User that we want to create"
-                }
-              ],
-              "produces": [
-                "application/json"
-              ],
-              "responses": {
-                "200": {
-                  "description": "New user is created"
-                }
-              }
-            } 
-        },
-        "/data": {
-            "get": {
-              "tags": [
-                "Users"
-              ],
-              "description": "Create new user in system",
-              "parameters": [
-                {
-                  "name": "user",
-                  "in": "body",
-                  "description": "User that we want to create"
-                }
-              ],
-              "produces": [
-                "application/json"
-              ],
-              "responses": {
-                "200": {
-                  "description": "New user is created"
-                }
-              }
-            } 
-        },
-        "/validate": {
-            "post": {
-              "tags": [
-                "Users"
-              ],
-              "description": "Create new user in system",
-              "parameters": [
-                {
-                  "name": "user",
-                  "in": "body",
-                  "description": "User that we want to create"
-                }
-              ],
-              "produces": [
-                "application/json"
-              ],
-              "responses": {
-                "200": {
-                  "description": "New user is created"
-                }
-              }
-            } 
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "New user is created"
+            }
+          }
         }
+      },
+      "/users": {
+          "get": {
+              "tags": [ "Users" ],
+              "description": "Get all the users",
+              "produces": [
+                "application/json"
+              ],
+              "responses": {
+                "200": {
+                  "description": "Array of user object"
+                }
+              }
+          }
       }
+    },
+    "definitions": {
+      "User": {
+        "required": [
+          "username",
+          "firstname",
+          "lastname",
+          "password",
+          "_id"
+        ],
+        "properties": {
+          "username": {
+            "type": "string",
+            "uniqueItems": true
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "Users": {
+        "type": "array",
+        "$ref": "#/definitions/User"
+      }
+    }
 }

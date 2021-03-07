@@ -1,7 +1,7 @@
-const RouteNames = {
-    register: '/signup',
+const Routes = {
+    signup: '/signup',
     login: '/login',
-    data: '/data',
+    data: '/users',
     validate: '/validate'
 
 };
@@ -9,6 +9,6 @@ const RouteNames = {
 const PORT = 4000;
 
 module.exports = {
-    RouteNames,
+    Routes,
     PORT
 };

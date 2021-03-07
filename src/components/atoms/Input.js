@@ -7,9 +7,10 @@ const Input = ({
     autocompleteText,
     isRequired,
     blurHandler,
-    type
+    type,
+    value
 }) => {
-    return <input type={type} name={name} onChange={changeHandler} onBlur={blurHandler} autoComplete={autocompleteText} required={isRequired} />
+    return <input type={type} value={value} name={name} onChange={changeHandler} onBlur={blurHandler} autoComplete={autocompleteText} required={isRequired} />
 }
 
 Input.propTypes = {
@@ -18,7 +19,8 @@ Input.propTypes = {
     autocompleteText: PropTypes.string,
     isRequired: PropTypes.bool,
     blurHandler: PropTypes.func,
-    type: 'text'
+    type: 'text',
+    value: ''
 }
 
 Input.defaultProps = {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import {
-  registerUser,
+  signupUser,
   validateUsername
 } from '../../services';
 import Message from '../../elements/Message';
@@ -63,8 +63,8 @@ const Signup = () => {
       password: password,
     };
 
-    const registerStatus = await registerUser (data);
-    if (registerStatus === 200) {
+    const signupUserStatus = await signupUser(data);
+    if (signupUserStatus === 200) {
       setRegister(true);
       setError(false);
       setFirstname('');

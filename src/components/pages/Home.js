@@ -7,11 +7,11 @@ import Text from '../atoms/Text';
 const Home = ({ username, logoutHandler }) => {
     return (
         <>
-            <div class="ui card">
-                <div class="image">
+            <div className="ui card">
+                <div className="image">
                     <img src="/user.png" alt='user' />
                 </div>
-                <div class="content">
+                <div className="content">
                     <Text text={`${WELCOMETEXT} ${username}`} />
                 </div>
             </div>

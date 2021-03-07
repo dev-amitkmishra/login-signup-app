@@ -6,7 +6,7 @@ export const VALIDATEUSERPATH = '/validate';
 export const SIGNUP = {
 	FIRSTNAME : 'First Name',
 	LASTNAME : 'Last Name',
-	TEXT: 'Register',
+	TEXT: 'Signup',
 	CANCEL: 'Cancel',
 	HEADING: 'Sign Up'
 }

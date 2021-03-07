@@ -2,21 +2,20 @@ const express = require('express');
 const routes = express.Router();
 const bcrypt = require('bcryptjs');
 let User = require('./schema/User');
-let { RouteNames } = require("./constants");
-// Registration route
-routes.route(RouteNames.register).post(function(req, res) {
-    let register = new User(req.body);
-    register.save()
-        .then(reg => {
+let { Routes } = require("./constants");
+
+routes.route(Routes.signup).post(function(req, res) {
+    let signup = new User(req.body);
+    signup.save()
+        .then(req => {
             res.sendStatus(200);
         })
         .catch(err => {
-            res.status(400).send("Inerstion Error");
+            res.sendStatus(400);
         });
 });
 
-// Login Router
-routes.route(RouteNames.login).post(function(req, res) {
+routes.route(Routes.login).post(function(req, res) {
     const { userName, password } = req.body;
     User.findOne({ userName: userName })
         .then(user => {
@@ -28,16 +27,14 @@ routes.route(RouteNames.login).post(function(req, res) {
         });
 });
 
-// Username validation Router
-routes.route(RouteNames.validate)
+routes.route(Routes.validate)
     .post(function(req, res) {
         const { userName } = req.body;
         User.findOne({ userName: userName })
             .then(user => user ? res.sendStatus(204) : res.sendStatus(200))
     });
 
-// Get data
-routes.route(RouteNames.data).get(function(req, res) {
+routes.route(Routes.data).get(function(req, res) {
     User.find((err, data) => err ? res.status(400).send("Error occured") : res.json(data));
 });
 
