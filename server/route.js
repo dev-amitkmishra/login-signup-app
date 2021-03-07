@@ -18,17 +18,12 @@ routes.route(RouteNames.register).post(function(req, res) {
 // Login Router
 routes.route(RouteNames.login).post(function(req, res) {
     const { userName, password } = req.body;
-    console.log('sdnbvhjfgsdvfsd', userName, password);
     User.findOne({ userName: userName })
         .then(user => {
-            if (!user) res.sendStatus(2041);
+            if (!user) res.sendStatus(204);
             else {
-                console.log('sdhjfdsvfh', user);
                 bcrypt.compare(password, user.password)
-                    .then(isPasswordMatch => {
-                        console.log('dnsbfhjsdf', isPasswordMatch)
-                        return isPasswordMatch ? res.status(200).send(user) : res.sendStatus(204)
-                    })
+                    .then(isPasswordMatch => isPasswordMatch ? res.status(200).send(user) : res.sendStatus(204))
             }
         });
 });
