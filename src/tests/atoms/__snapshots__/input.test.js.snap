@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input renders correctly 1`] = `
+<input
+  autoComplete=""
+  name=""
+  onBlur={[Function]}
+  onChange={[Function]}
+  required={true}
+/>
+`;
