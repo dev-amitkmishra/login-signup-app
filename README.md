@@ -9,7 +9,7 @@
 3. Open http://localhost:3000 to view.
 ```
 
-## backend
+## Backend
 ``` Please do the following step:
 1. cd server(move to inside of server folder)
 2. npm install
@@ -21,4 +21,5 @@
 ## Database
 ```Please do the following steps:
 1. start mongodb server by using brew, docker or by manual.
+Node: Database is running on port 27017
 ```
