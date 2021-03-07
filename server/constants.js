@@ -1,5 +1,5 @@
 const RouteNames = {
-    register: '/register',
+    register: '/signup',
     login: '/login',
     data: '/data',
     validate: '/validate'
